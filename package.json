@@ -1,0 +1,21 @@
+{
+  "name": "nuxt-test",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "export": "nuxt export",
+    "serve": "nuxt serve"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "iview": "^3.5.4",
+    "node-sass": "^4.14.1",
+    "nuxt": "^2.13.0",
+    "sass-loader": "^8.0.2",
+    "scss-loader": "^0.0.1"
+  },
+  "devDependencies": {}
+}
