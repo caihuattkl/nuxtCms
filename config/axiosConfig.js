@@ -9,16 +9,14 @@ const service = axios.create({
 });
 
 service.interceptors.request.use(
-  config => {
-    return config;
-  },
+  config => config,
   error => error
 );
 
 // respone interceptor response
 service.interceptors.response.use(
-  res => {},
-  error => {}
+  res => res,
+  error => error
 );
 
 export default service;

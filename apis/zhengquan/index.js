@@ -10,7 +10,6 @@ import request from "@/config/axiosConfig";
 export const getSinaSZList = data =>
   request({
     url:
-      "//hq.sinajs.cn/rn=1593671040453&list=s_sh000001,s_sz399001,s_sh000300,s_sz399415,s_sz399006",
-    method: "post",
-    data
+      "https://hq.sinajs.cn/rn=1593671040453&list=s_sh000001,s_sz399001,s_sh000300,s_sz399415,s_sz399006",
+    method: "get"
   });
