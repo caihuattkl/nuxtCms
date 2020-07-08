@@ -2877,7 +2877,8 @@ body {
 }
 .content .leftBox .other .marsk ul li a {
   color: #ffffff;
-}
+ }
+ /*
 .content .leftBox .left2 {
   vertical-align: top;
   display: inline-block;
@@ -2905,7 +2906,7 @@ body {
   font-size: 12px;
   margin-top: 5px;
   color: #666666;
-}
+} */
 .content .leftBox .left3 {
   margin-top: 10px;
   vertical-align: top;
@@ -2985,6 +2986,7 @@ body {
   margin-right: 10px;
   line-height: 30px;
 }
+
 .content .right {
   text-align: left;
   margin: 10px 0 0;
