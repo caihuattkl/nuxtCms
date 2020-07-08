@@ -85,9 +85,7 @@ export default {
       return { title: res.data };
     }
   },
-  async asyncData(app) {
-    _getSinaSZList();
-  }
+  async asyncData(app) {}
 };
 </script>
 

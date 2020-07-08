@@ -1,10 +1,10 @@
 import axios from "axios";
-
+// process.env.API_ROOT
 const service = axios.create({
-  baseURL: process.env.API_ROOT,
+  baseURL: 'http://localhost:5000',
   timeout: 1000 * 30,
   headers: {
-    "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+    "Content-Type": "application/json;charset=UTF-8"
   }
 });
 
