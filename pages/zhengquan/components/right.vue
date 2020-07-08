@@ -1,12 +1,16 @@
 <template>
-<div class="right"><img src="http://d8.sina.com.cn/pfpghc2/201612/31/427c8c37e06046e492752ba53a40e216.jpg"/></div>
+  <div class="right">
+    <img
+      src="https://s3.pfp.sina.net/ea/ad/0/8/528df4ae0eafea47f726f54ce81e9863.gif"
+    />
+  </div>
 </template>
 
 <script>
 export default {
-	data(){
-		return {}
-	},
+  data() {
+    return {};
+  },
   methods: {},
   created() {}
 };
@@ -20,9 +24,8 @@ export default {
   vertical-align: top;
   width: 238px;
   overflow: hidden;
-	float:right;
+  float: right;
 }
-
 </style>
 
 
