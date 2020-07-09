@@ -25,8 +25,21 @@ export default {
       type: Array
     }
   },
-  created() {
-    // console.log(this.newClassData, "来了");
-  }
+  created() {}
 };
 </script>
+<style lang="scss" scoped>
+.nav {
+  background: #225d98;
+  height: 40px;
+}
+.nav ul li {
+  line-height: 40px;
+  display: inline-block;
+  margin: 0 20px;
+  font-size: 16px;
+}
+.nav ul li a {
+  color: #ffffff;
+}
+</style>

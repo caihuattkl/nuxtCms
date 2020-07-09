@@ -5,9 +5,15 @@
 /* FONT PATH
  * -------------------------- */
 @font-face {
-  font-family: 'FontAwesome';
-  src: url('../fonts/fontawesome-webfont.eot?v=4.7.0');
-  src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2'), url('../fonts/fontawesome-webfont.woff?v=4.7.0') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');
+  font-family: "FontAwesome";
+  src: url("../fonts/fontawesome-webfont.eot?v=4.7.0");
+  src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.7.0")
+      format("embedded-opentype"),
+    url("../fonts/fontawesome-webfont.woff2?v=4.7.0") format("woff2"),
+    url("../fonts/fontawesome-webfont.woff?v=4.7.0") format("woff"),
+    url("../fonts/fontawesome-webfont.ttf?v=4.7.0") format("truetype"),
+    url("../fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular")
+      format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -60,9 +66,9 @@
   left: -1.85714286em;
 }
 .fa-border {
-  padding: .2em .25em .15em;
+  padding: 0.2em 0.25em 0.15em;
   border: solid 0.08em #eeeeee;
-  border-radius: .1em;
+  border-radius: 0.1em;
 }
 .fa-pull-left {
   float: left;
@@ -71,10 +77,10 @@
   float: right;
 }
 .fa.fa-pull-left {
-  margin-right: .3em;
+  margin-right: 0.3em;
 }
 .fa.fa-pull-right {
-  margin-left: .3em;
+  margin-left: 0.3em;
 }
 /* Deprecated as of 4.4.0 */
 .pull-right {
@@ -84,10 +90,10 @@
   float: left;
 }
 .fa.pull-left {
-  margin-right: .3em;
+  margin-right: 0.3em;
 }
 .fa.pull-right {
-  margin-left: .3em;
+  margin-left: 0.3em;
 }
 .fa-spin {
   -webkit-animation: fa-spin 2s infinite linear;
@@ -2418,7 +2424,7 @@ body {
   font-family: "微软雅黑", "宋体";
 }
 .paginationColor {
-  color: #C81629 !important;
+  color: #c81629 !important;
 }
 .pagination {
   border-top: 1px dashed #bfbfbf;
@@ -2467,108 +2473,6 @@ body {
   box-shadow: none;
   opacity: 0.65;
 }
-.header {
-  width: 100%;
-  display: block;
-  line-height: 35px;
-  height: 35px;
-  background-color: #f5f5f5;
-}
-.header:after {
-  content: '';
-}
-.navTop {
-  clear: both;
-  width: 998px;
-  margin: 0 auto;
-  font-size: 12px;
-}
-.navTop .left ul {
-  z-index: 99;
-}
-.navTop .left ul li {
-  display: inline-block;
-  float: left;
-  font-size: 13px;
-}
-.navTop .left ul li + li {
-  padding-left: 15px;
-}
-.navTop .left ul li #more {
-  left: -1px;
-  top: 35px;
-  position: absolute;
-  Z-index: 1;
-  background: #ffffff;
-  border: 1px solid #bfbfbf;
-  overflow: hidden;
-  width: 300px;
-  padding: 10px;
-  height: 100px;
-}
-.navTop .left ul li #more ul li {
-  display: inline-block;
-  text-align: left;
-}
-.navTop .left ul li.navTop-current {
-  text-align: center;
-  width: 60px;
-  height: 36px;
-  position: relative;
-  z-index: 1;
-  border-left: 1px solid transparent;
-  border-right: 1px solid transparent;
-  background: #f5f5f5;
-  padding: 0px 15px;
-}
-.navTop .left ul li.navTop-current > a {
-  display: block;
-  height: 36px;
-  border-left: 1px solid #f5f5f5;
-  border-right: 1px solid #f5f5f5;
-  position: absolute;
-  z-index: 2;
-  width: 60px;
-}
-.navTop .left ul li.navTop-current > a:hover {
-  height: 36px;
-  border-left: 1px solid #bfbfbf;
-  border-right: 1px solid #bfbfbf;
-  background: #ffffff;
-  padding: 0px 15px;
-}
-.navTop .left ul li.navTop-current:hover > .more {
-  display: block;
-  height: 36px;
-  border-left: 1px solid #bfbfbf;
-  border-right: 1px solid #bfbfbf;
-  background: #ffffff;
-  padding: 0px 15px;
-}
-.navTop .left ul li.navTop-current:hover > a {
-  display: block;
-  height: 36px;
-  border-left: 1px solid #bfbfbf;
-  border-right: 1px solid #bfbfbf;
-  background: #ffffff;
-  padding: 0px 15px;
-}
-.navTop .right {
-  float: right;
-}
-.navTop .right ul li {
-  float: left;
-}
-.navTop .right ul li.red > a {
-  color: red;
-  font-weight: bold;
-}
-.navTop .right ul li:not(:last-child):after {
-  color: red;
-  content: "|";
-  padding: 0 5px;
-  color: #bfbfbf;
-}
 .footer {
   font-size: 12px;
   background: #f5f5f5;
@@ -2590,11 +2494,11 @@ body {
   line-height: 35px;
 }
 .redBg {
-  background: #F9E0E1;
+  background: #f9e0e1;
   color: red;
 }
 .greenBg {
-  background: #E1FCE1;
+  background: #e1fce1;
   color: green;
 }
 .redff {
@@ -2620,7 +2524,7 @@ body {
   padding: 0;
 }
 .plan .crumbs > li + li:before {
-  color: #CCCCCC;
+  color: #cccccc;
   content: ">";
   padding: 0 5px;
 }

@@ -19,11 +19,9 @@ export default {
       type: Array
     }
   },
-  created() {
-    // console.log(this.newClassData, "来了");
-  }
+  created() {}
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 </style>

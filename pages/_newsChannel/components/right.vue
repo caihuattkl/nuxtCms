@@ -15,17 +15,3 @@ export default {
   created() {}
 };
 </script>
-
-<style lang="scss">
-.right {
-  text-align: left;
-  margin: 10px 0 0;
-  display: inline-block;
-  vertical-align: top;
-  width: 238px;
-  overflow: hidden;
-  float: right;
-}
-</style>
-
-
