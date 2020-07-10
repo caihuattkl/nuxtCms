@@ -6,4 +6,4 @@ import request from "@/config/axiosConfig";
  * @param {*} data
  * @returns
  */
-export const getNewsClass = (data = {}) => request({ url: "/v1/news_class/item",method: "POST",data});
+export const getNewsClass = (data = {}) => request({ url: "/v1/sqlites/news_class/item", method: "POST", data });

@@ -97,24 +97,30 @@ export default {
       if (this.amTime("13:00", "15:00", this.nowTime())) this._getSinaIndex();
     },
     _removeClassStyle() {
-      let classStr = "";
-      if (this.diagrams["nsh000300"].indexs[2].indexOf("-") == 0) classStr = "green";
-      classStr = "red";
       Object.keys(this.diagrams).forEach((key, i) => {
-        this.diagrams[key].class = classStr;
+        if (this.diagrams[key].indexs[2].indexOf("-") == 0) {
+          this.diagrams[key].class = "green";
+        } else if (this.diagrams[key].indexs[2] == 0) {
+          this.diagrams[key].class = "black";
+        } else {
+          this.diagrams[key].class = "red";
+        }
       });
     },
     /* // 添加样式 文字and背景 */
     _addClassStyle(item) {
-      let classStr = "";
-      if (this.diagrams["nsh000300"].indexs[2].indexOf("-") == 0) classStr = "green green-bgcolor";
-      classStr = "red red-bgcolor";
       Object.keys(this.diagrams).forEach((key, i) => {
-        this.diagrams[key].class = classStr;
+        if (this.diagrams[key].indexs[2].indexOf("-") == 0) {
+          this.diagrams[key].class = "green green-bgcolor";
+        } else if (this.diagrams[key].indexs[2] == 0) {
+          this.diagrams[key].class = "black";
+        } else {
+          this.diagrams[key].class = "red red-bgcolor";
+        }
       });
     },
     async _getSinaIndex() {
-      const res = await this.$axios.post("/v1/sina_index");
+      const res = await this.$axios.post("/v1/sqlites/stock_index");
       if (res.data.error_code) return;
       const data = res.data.data.replace(/var.+?="(.+?)";/g, "$1").split("\n");
       this.diagrams.nsh000001.indexs = data[0].split(",");
@@ -148,6 +154,9 @@ export default {
 }
 .green-bgcolor {
   background: #e5fae3;
+}
+.black {
+  color: black;
 }
 .red {
   padding: 2px 3px;

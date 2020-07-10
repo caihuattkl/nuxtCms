@@ -26,7 +26,6 @@ import IndexDiagram from "./components/index-diagram.vue";
 import MiddleHeadlines from "./components/middle-headlines.vue";
 import right from "./components/right.vue";
 import newClass from "./components/news-class.vue";
-import { getSinaSZList } from "@/apis/zhengquan";
 import { getNewsClass } from "@/apis/bases";
 export default {
   layout: "channel",
@@ -48,10 +47,10 @@ export default {
     try {
       const {
         data: { data: newsClassData }
-      } = await app.$axios.post("/v1/news_class/item", { className: className });
+      } = await app.$axios.post("/v1/sqlites/news_class/item", { className: className });
       const {
         data: { data: channelNewsData }
-      } = await app.$axios.post("/v1/channel_news/item", {
+      } = await app.$axios.post("/v1/sqlites/channel_news/item", {
         className: "证券"
       });
       return { newsClassData, channelNewsData };
