@@ -1,5 +1,5 @@
 import Vue from "vue";
-
+import md5 from "md5";
 /* 工具类 */
 class Tools {
   /** 格式化字符串到json */
@@ -75,13 +75,20 @@ class Tools {
    */
   getUrlObject() {
     if (!location.search.slice(1)) return {};
-    return JSON.parse('{"' +
+    return JSON.parse(
+      '{"' +
         decodeURIComponent(location.search.slice(1))
           .replace(/"/g, '\\"')
           .replace(/&/g, '","')
           .replace(/=/g, '":"') +
         '"}'
     );
+  }
+
+  /* md5加密 */
+
+  md5(str) {
+    return md5(str);
   }
 }
 

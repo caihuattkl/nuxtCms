@@ -4,5 +4,5 @@ const prodEnv = require("./prod.env");
 //http://192.168.2.124:8023
 module.exports = merge(prodEnv, {
   NODE_ENV: '"development"',
-  API_ROOT: '"http://192.168.2.124:8028"'
+  API_ROOT: '"//localhost:5000"'
 });

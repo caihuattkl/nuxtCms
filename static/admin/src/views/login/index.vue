@@ -25,7 +25,7 @@
 
 <script>
 import { Vue, Component, Prop, Model, Watch, Emit } from "vue-property-decorator";
-import { loginByUsername } from "@/api/login/login";
+import { login } from "@/api/login/login";
 
 @Component({})
 export default class Login extends Vue {
@@ -59,13 +59,14 @@ export default class Login extends Vue {
   async handleLogin() {
     if (!(await this.$refs.loginForm.validate())) return;
     this.loading = true;
-    let res = await loginByUsername({ account: this.loginForm.username, password: this.loginForm.password });
+    let res = await login(JSON.stringify({ name: this.loginForm.username, password: this.$tool.md5(this.loginForm.password) }));
     this.loading = false;
-    if (!res.success) return this.$msg.error(res.data.message);
-    this.$store.commit("SET_USER_INFO", res.data);
-    this.$store.commit("SET_TOKEN", res.data.token);
-    this.$store.commit("SET_ROUTERS");
-    this.$router.push({ path: "/" });
+    console.log(res);
+    // if (!res.success) return this.$msg.error(res.data.message);
+    // this.$store.commit("SET_USER_INFO", res.data);
+    // this.$store.commit("SET_TOKEN", res.data.token);
+    // this.$store.commit("SET_ROUTERS");
+    // this.$router.push({ path: "/" });
   }
 }
 </script>
