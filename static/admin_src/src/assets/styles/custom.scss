@@ -1,0 +1,85 @@
+@import "./variables.scss";
+body {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #09799e;
+    border: 1px solid #086989;
+    border-radius: 2em;
+  }
+}
+.iconfont {
+  font-size: 14px;
+}
+.el-container-custom {
+  .el-container {
+    min-width: 1450px;
+  }
+}
+
+.pagination-box {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 0px;
+  .el-pagination {
+    padding-right: 0px;
+  }
+  .btn-next {
+    margin-right: 0 !important;
+  }
+}
+
+.amap-logo,
+.amap-copyright {
+  display: none !important;
+}
+
+.table-expand-form {
+  font-size: 0;
+  label {
+    width: 90px;
+    color: #99a9bf;
+  }
+  .el-form-item {
+    margin-right: 0;
+    margin-bottom: 0;
+    width: 50%;
+  }
+}
+
+.myLoading {
+  z-index: 9999;
+}
+
+.insert-table {
+  > td {
+    padding: 0;
+  }
+  .el-child-table {
+    thead {
+      th {
+        text-align: center;
+      }
+    }
+    tbody {
+      td {
+        text-align: center;
+      }
+    }
+  }
+}
+
+.icp {
+  position: absolute;
+  bottom: 5%;
+  z-index: 99;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+}
