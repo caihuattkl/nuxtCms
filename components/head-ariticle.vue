@@ -6,9 +6,9 @@
           <li>
             <a href="/">首页</a>
           </li>
-          <!-- <li :key="i" v-for="(item, i) in channelData">
-            <a :href="`${item.directoryName}`">{{ item.title }}</a>
-          </li> -->
+          <li :key="i" v-for="(item,i) in headerTopNav">
+            <a  :href="`/${item[1]}/`">{{item[0]}}</a>
+          </li>
           <li class="navTop-current">
             <a href="javascript:void(0)" id="navTop-current">更多</a>
             <div class="more hide" id="more">
@@ -70,7 +70,14 @@
 
 <script>
 export default {
-  created() {}
+   props: {
+    headerTopNav: {
+      default: () => [],
+      type: Array | Object
+    }
+  },
+  created() {
+  }
 };
 </script>
 

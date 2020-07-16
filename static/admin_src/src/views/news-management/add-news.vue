@@ -88,7 +88,7 @@
         </el-col>
       </el-row>
       <el-form-item style="margin-top:10px;">
-        <el-button type="primary" @click="_addNews">立即添加</el-button>
+        <el-button type="primary" @click="_addNews">立即提交</el-button>
         <el-button>取消</el-button>
       </el-form-item>
     </el-form>

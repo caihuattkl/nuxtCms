@@ -1,14 +1,14 @@
 <template>
   <div>
-    <headAriticle />
-    <topClassNav :newClassData="newsClassData" />
+    <headAriticle :headerTopNav="headerTopNav"/>
+    <topClassNav />
     <div class="main">
-      <navs :newClassData="newsClassData" />
+      <navs :navData="channelNewsData" />
       <div class="content">
         <div class="leftBox">
           <IndexDiagram />
-          <MiddleHeadlines />
-          <newClass :newClassData="newsClassData" :channelNewsData="channelNewsData" />
+          <MiddleHeadlines :hotNewsData="channelNewsData" />
+          <newClass :channelNewsData="channelNewsData" />
         </div>
         <right />
       </div>
@@ -26,7 +26,6 @@ import IndexDiagram from "./components/index-diagram.vue";
 import MiddleHeadlines from "./components/middle-headlines.vue";
 import right from "./components/right.vue";
 import newClass from "./components/news-class.vue";
-import { getNewsClass } from "@/apis/bases";
 export default {
   layout: "channel",
   components: {
@@ -46,14 +45,14 @@ export default {
     const className = app.router.history.current.fullPath.replace(/\//g, "");
     try {
       const {
-        data: { data: newsClassData }
-      } = await app.$axios.post("/v1/sqlites/news_class/item", { className: className });
-      const {
         data: { data: channelNewsData }
-      } = await app.$axios.post("/v1/sqlites/channel_news/item", {
-        className: "证券"
+      } = await app.$axios.post("/v1/sqlites/channel_news", {
+        className: className
       });
-      return { newsClassData, channelNewsData };
+      const {
+        data: { data: headerTopNav }
+      } = await app.$axios.post("/v1/sqlites/header_top_nav",{});
+      return { channelNewsData,headerTopNav };
     } catch (err) {
       error({ statusCode: 404, message: "Post not found" });
     }

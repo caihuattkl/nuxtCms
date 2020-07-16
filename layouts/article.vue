@@ -5,10 +5,11 @@
   </div>
 </template>
 <script>
+import headAriticle from "@/components/head-ariticle.vue";
 import footerChannel from "@/components/footer-channel.vue";
 export default {
   components: {
-    footerChannel,
+    footerChannel
   },
   methods: {},
   created() {}

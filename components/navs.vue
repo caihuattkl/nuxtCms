@@ -1,16 +1,11 @@
 <template>
   <div class="nav">
     <ul>
-      <li :key="i" v-for="(item, i) in newClassData">
-        <a v-if="i == 0" :href="`/${item.directoryName}/`">
-          <strong>{{ item.title }}</strong></a
-        >
-        <a
-          v-else
-          :href="`/${newClassData[0].directoryName}/${item.directoryName}/`"
-        >
-          {{ item.title }}</a
-        >
+      <li :key="i" v-for="(value, key, i) in navData">
+        <a v-if="i == 0" :href="`/${value.url}`">
+          <strong>{{ value.name }}</strong>
+        </a>
+        <a v-else :href="`/${value.url}`"> {{ value.name }}</a>
       </li>
     </ul>
   </div>
@@ -20,9 +15,9 @@
 <script>
 export default {
   props: {
-    newClassData: {
-      default: [],
-      type: Array
+    navData: {
+      default: () => [],
+      type: Array | Object
     }
   },
   created() {}

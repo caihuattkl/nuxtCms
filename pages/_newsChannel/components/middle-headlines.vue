@@ -1,42 +1,31 @@
 <template>
   <div class="left2">
-    <h2>
-      <a href="/1" target="_blank" title="">涨停板预测：47只股票或涨停附利好</a>
-    </h2>
-    <ul class="list01 u-list-center" data-client="scroll">
-      <li>
-        <a target="_blank" href="/" title="">涨停板预测：47只股票或涨停附利好</a>
-      </li>
-      <li>
-        <a target="_blank" href="/" title="">涨停板预测：47只股票或涨停附利好</a>
-      </li>
-      <li>
-        <a target="_blank" href="/" title="">涨停板预测：47只股票或涨停附利好</a>
-      </li>
-      <li>
-        <a target="_blank" href="/" title="">涨停板预测：47只股票或涨停附利好</a>
-      </li>
-      <li>
-        <a target="_blank" href="/" title="">涨停板预测：47只股票或涨停附利好</a>
-      </li>
-      <li>
-        <a target="_blank" href="/" title="">涨停板预测：47只股票或涨停附利好</a>
-      </li>
-      <li>
-        <a target="_blank" href="/" title="">涨停板预测：47只股票或涨停附利好</a>
-      </li>
-      <li>
-        <a target="_blank" href="/" title="">涨停板预测：47只股票或涨停附利好</a>
-      </li>
-      <li>
-        <a target="_blank" href="/" title="">涨停板预测：47只股票或涨停附利好</a>
-      </li>
-    </ul>
+    <template v-for="(value, key, i) in hotNewsData">
+      <h2 v-if="i == 0" :key="i">
+        <a v-if="value.data.length" :href="`/${value.data[0][1]}`" target="_blank" title="">{{ value.data[0][0] }}</a>
+      </h2>
+      <ul v-if="i == 0" :key="i" class="list01 u-list-center" data-client="scroll">
+        <template v-for="(item, index) in value.data">
+          <li v-if="index !== 0" :key="index">
+            <a v-if="value.data.length" target="_blank" :href="`/${item[1]}`" title="">{{ `${item[0]}` }}</a>
+          </li>
+        </template>
+      </ul>
+    </template>
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    hotNewsData: {
+      default: () => [],
+      type: Array | Object
+    }
+  },
+  async asyncData({ app, error }) {
+    console.log("这里能加载吗?")
+  },
   data() {
     return {};
   },

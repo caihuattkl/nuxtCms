@@ -33,7 +33,7 @@ export default {
   // "~/assets/css/reports_channel.css"
   css: ["iview/dist/styles/iview.css", { src: "~assets/scss/common.scss", lang: "scss" }],
   // { src: '~/plugins/localStorage.js', ssr: false }
-  plugins: ["@/plugins/iview", "~/plugins/axios"],
+  plugins: ["@/plugins/iview", "~/plugins/axios","@/plugins/tools"],
   components: true,
   buildModules: [],
   modules: ["@nuxtjs/style-resources", "@nuxtjs/axios", "@nuxtjs/proxy"],

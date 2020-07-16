@@ -6,7 +6,7 @@ import axios from "axios";
  * @param {*} data
  * @returns
  */
-export const queryNewsClass = data => request({ url: "/v1/sqlites/news_class/item", method: "post", data });
+export const queryNewsClass = data => request({ url: "/v1/sqlites/class_news", method: "post", data });
 
 /**
  *获取资讯

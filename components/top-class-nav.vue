@@ -15,8 +15,8 @@
 export default {
   props: {
     newClassData: {
-      default: [],
-      type: Array
+      default:()=>[],
+      type: Array|Object
     }
   },
   created() {}
