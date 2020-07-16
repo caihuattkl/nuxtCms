@@ -1,7 +1,7 @@
 <template>
   <div>
-    <headAriticle :headerTopNav="headerTopNav"/>
-    <topClassNav />
+    <headAriticle :headerTopNav="headerTopNav" />
+    <topClassNav :topClassNav="channelNewsData" />
     <div class="main">
       <navs :navData="channelNewsData" />
       <div class="content">
@@ -51,8 +51,8 @@ export default {
       });
       const {
         data: { data: headerTopNav }
-      } = await app.$axios.post("/v1/sqlites/header_top_nav",{});
-      return { channelNewsData,headerTopNav };
+      } = await app.$axios.post("/v1/sqlites/header_top_nav", {});
+      return { channelNewsData, headerTopNav };
     } catch (err) {
       error({ statusCode: 404, message: "Post not found" });
     }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <headAriticle :headerTopNav="headerTopNav"/>
+    <headAriticle :headerTopNav="headerTopNav" />
     <div class="plan">
       <div class="left">
         <ul class="crumbs" id="crumbs">
@@ -23,8 +23,8 @@
           <div class="newsinfo">
             <h1>{{ newsDtail.subTitle }}</h1>
             <div class="date">
-              <span class="blue">{{ $tool.dateFormat(new Date(newsDtail.time), "YYYY-MM-DD HH:mm:ss")}}</span>
-              <a href="/" target="_blank">{{newsDtail.source}}</a>
+              <span class="blue">{{ $tool.dateFormat(new Date(newsDtail.time), "YYYY-MM-DD HH:mm:ss") }}</span>
+              <a href="/" target="_blank">{{ newsDtail.source }}</a>
               <a class="addSize" href="javascript:void(0)" onclick="addSize(-1)">A-</a>
               <a class="addSize" href="javascript:void(0)" onclick="addSize(1)">A+</a>
             </div>
@@ -122,28 +122,25 @@
   </div>
 </template>
 
-
 <script>
 import headAriticle from "@/components/head-ariticle.vue";
 export default {
-  layout:"article",
+  layout: "article",
   components: {
     headAriticle
   },
   methods: {},
-  created() {
-    // console.log(this.$route.path);
-  },
+  created() {},
   async asyncData({ app, error }) {
-    const url = app.router.history.current.fullPath.slice(1)
+    const url = app.router.history.current.fullPath.slice(1);
     try {
       const {
         data: { data: newsDtail }
-      } = await app.$axios.post("/v1/sqlites/news_front_detail", {url});
+      } = await app.$axios.post("/v1/sqlites/news_front_detail", { url });
       const {
         data: { data: headerTopNav }
-      } = await app.$axios.post("/v1/sqlites/header_top_nav",{});
-      return { newsDtail,headerTopNav };
+      } = await app.$axios.post("/v1/sqlites/header_top_nav", {});
+      return { newsDtail, headerTopNav };
     } catch (err) {
       error({ statusCode: 404, message: "Post not found" });
     }

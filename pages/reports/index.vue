@@ -1,0 +1,1 @@
+<template><div>报告频道开始</div></template>

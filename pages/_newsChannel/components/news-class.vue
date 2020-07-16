@@ -26,8 +26,6 @@ export default {
       type: Array | Object
     }
   },
-  created() {
-    // console.log(this.newClassData, "来了");
-  }
+  created() {}
 };
 </script>

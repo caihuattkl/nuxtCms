@@ -23,9 +23,7 @@ export default {
       type: Array | Object
     }
   },
-  async asyncData({ app, error }) {
-    console.log("这里能加载吗?")
-  },
+  async asyncData({ app, error }) {},
   data() {
     return {};
   },
