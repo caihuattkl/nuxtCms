@@ -1,29 +1,42 @@
 {
-  "name": "nuxt-test",
-  "version": "1.0.0",
+  "name": "jenkins_test",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "export": "nuxt export",
-    "serve": "nuxt serve"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.11.0",
-    "@nuxtjs/proxy": "^2.0.0",
-    "@nuxtjs/style-resources": "^1.0.0",
-    "css-loader": "^3.6.0",
-    "iview": "^3.5.4",
-    "md5": "^2.2.1",
-    "node-sass": "^4.14.1",
-    "nuxt": "^2.13.0",
-    "postcss-loader": "^3.0.0",
-    "sass-loader": "^8.0.2",
-    "scss-loader": "^0.0.1",
-    "style-loader": "^1.2.1",
-    "vuejs-storage": "^3.0.1",
-    "vuex-persistedstate": "^3.0.1"
+    "core-js": "^3.6.5",
+    "vue": "^2.6.11"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.4.0",
+    "@vue/cli-plugin-eslint": "^4.4.0",
+    "@vue/cli-service": "^4.4.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
 }
