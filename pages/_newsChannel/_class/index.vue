@@ -7,16 +7,16 @@
       <div class="content">
         <div class="leftBox">
           <ul class="newslist">
-            <li>
+            <li :key="i" v-for="(item, i) in classNewsList">
               <h3 class="title">
-                <a href="/" target="_blank">{{ `subTitle` }}</a>
+                <a :href="`/${item.url}`" target="_blank">{{ item.title }}</a>
               </h3>
               <div class="dec">
-                <a href="/" target="_blank">{{ `classNewsDescription nContent` }}...</a>
+                <a :href="`/${item.url}`" target="_blank" v-html="item.nContent.slice(0, 150) + `...`"></a>
               </div>
             </li>
           </ul>
-          <ul class="pagination">
+          <!-- <ul class="pagination">
             <li><a href="/">上一页</a></li>
             <li>
               <a href="/">{{ 121212 }}</a>
@@ -25,7 +25,7 @@
             <li>
               <a>第{{ `classNewsList.curPage` }}页，共{{ `classNewsList.pageNum.length` }}页</a>
             </li>
-          </ul>
+          </ul> -->
         </div>
         <div class="right">
           <img src="http://d8.sina.com.cn/pfpghc2/201612/31/427c8c37e06046e492752ba53a40e216.jpg" />
@@ -55,15 +55,26 @@ export default {
   async asyncData({ app, error }) {
     const classNames = app.router.history.current.fullPath.split("/").filter(item => item);
     try {
+      /* 获取栏目列表数据 */
+      const {
+        data: { data: classNewsList }
+      } = await app.$axios.post("/v1/sqlites/class_news_list", {
+        childClassName: classNames[1],
+        firstClassName: classNames[0],
+        pageSize: 10,
+        pageNumber: 1
+      });
+      /* 获取栏目导航条数据 */
       const {
         data: { data: channelNewsData }
       } = await app.$axios.post("/v1/sqlites/channel_news", {
         className: classNames[0]
       });
+      /* 获取header头部数据 */
       const {
         data: { data: headerTopNav }
       } = await app.$axios.post("/v1/sqlites/header_top_nav", {});
-      return { channelNewsData, headerTopNav };
+      return { channelNewsData, classNewsList, headerTopNav };
     } catch (err) {
       error({ statusCode: 404, message: "Post not found" });
     }
