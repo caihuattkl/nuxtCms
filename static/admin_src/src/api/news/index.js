@@ -6,32 +6,32 @@ import axios from "axios";
  * @param {*} data
  * @returns
  */
-export const queryNewsClass = data => request({ url: "/v1/sqlites/class_news", method: "post", data });
+export const queryNewsClass = data => request({ url: "/v2/sqlites/class_news", method: "post", data });
 
 /**
  *获取资讯
  * @param {*} data
  * @returns
  */
-export const queryNews = data => request({ url: "/v1/sqlites/news", method: "post", data });
+export const queryNews = data => request({ url: "/v2/sqlites/news", method: "post", data });
 
 /**
  *新增资讯
  * @param {*} data
  * @returns
  */
-export const addNews = data => request({ url: "/v1/sqlites/add_news", method: "post", data });
+export const addNews = data => request({ url: "/v2/sqlites/add_news", method: "post", data });
 
 /**
  *编辑资讯
  * @param {*} data
  * @returns
  */
-export const editNews = data => request({ url: "/v1/sqlites/edit_news", method: "post", data });
+export const editNews = data => request({ url: "/v2/sqlites/edit_news", method: "post", data });
 
 /**
  *获取资讯详细信息
  * @param {*} data
  * @returns
  */
-export const newsDetail = data => request({ url: "/v1/sqlites/news/detail", method: "post", data });
+export const newsDetail = data => request({ url: "/v2/sqlites/news/detail", method: "post", data });

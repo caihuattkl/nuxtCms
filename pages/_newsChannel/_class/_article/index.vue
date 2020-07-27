@@ -133,7 +133,6 @@ export default {
   created() {},
   async asyncData({ app, error }) {
     const url = app.router.history.current.fullPath.slice(1);
-    console.log(url);
     try {
       const {
         data: { data: newsDtail }

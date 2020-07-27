@@ -63,7 +63,36 @@ export const asyncRouterMap = [
           title: "添加编辑资讯",
           icon: "iconfont icon-icon--copy"
         }
+      }
+    ]
+  },
+  {
+    path: "/report-management",
+    name: "reportManagement",
+    component: Layout,
+    redirect: "noredirect",
+    meta: { title: "报告管理", icon: "iconfont icon-jingxiaoshang" },
+    children: [
+      {
+        level: 0,
+        path: "report-list",
+        component: require("@/views/report-management/report-list").default,
+        name: "reportList",
+        meta: {
+          title: "报告列表",
+          icon: "iconfont icon-icon--copy"
+        }
       },
+      {
+        level: 1,
+        path: "add-report",
+        component: require("@/views/report-management/add-report").default,
+        name: "addReport",
+        meta: {
+          title: "添加编辑报告",
+          icon: "iconfont icon-icon--copy"
+        }
+      }
     ]
   }
 ];

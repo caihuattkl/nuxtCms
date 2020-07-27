@@ -8,7 +8,7 @@ import axios from "axios";
  * @param {*} data
  * @returns
  */
-export const login = data => request({ url: "/v1/users/login", method: "post", data });
+export const login = data => request({ url: "/v2/users/login", method: "post", data });
 
 /**
  * 注销登录

@@ -21,7 +21,7 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   res => {
     // 返回200 但是是错误的情况
-    if (res.data.code === 200) return Promise.resolve({ success: true, data: res.data.data });
+    if (res.data.code === 200) return Promise.resolve({ success: true, data: res.data.data, total: res.data.total || 0 });
     if (res.data.code >= 4001 && res.data.code < 5000) return Promise.resolve({ success: false, data: res.data }) && store.commit("LOGOUT");
     return Promise.resolve({ success: false, data: res.data });
   },
