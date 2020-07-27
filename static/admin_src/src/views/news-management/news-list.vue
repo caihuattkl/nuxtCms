@@ -79,6 +79,8 @@ export default class OrderList extends Vue {
       form: { title: "" }
     }
   };
+
+
   newsClassOptions = {
     newsClassValue: "",
     selectOption: []
@@ -104,8 +106,8 @@ export default class OrderList extends Vue {
   async _queryNews() {
     let res = await queryNews({ bigClass: "", ...this.tables.query.pageParams });
     if (!res.success) return this.$msg.error(res.data.msg);
-    this.tables.data = res.data.data;
-    this.tables.total = res.data.total;
+    this.tables.data = res.data;
+    this.tables.total = res.total;
   }
   // 清理from表单
   resetFields(form) {

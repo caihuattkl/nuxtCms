@@ -60,9 +60,8 @@ export default class Login extends Vue {
     if (!(await this.$refs.loginForm.validate())) return;
     this.loading = true;
     let res = await login(JSON.stringify({ name: this.loginForm.username, password: this.$tool.md5(this.loginForm.password) }));
-    console.log(res)
     this.loading = false;
-    if (!res.success) return this.$msg.error(res.data.msg);
+    if (!res.success) return this.$msg.error(res.msg);
     this.$store.commit("SET_USER_INFO", res.data);
     this.$store.commit("SET_TOKEN", res.data.token.access_token);
     this.$store.commit("SET_ROUTERS");

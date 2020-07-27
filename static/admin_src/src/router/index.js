@@ -67,6 +67,25 @@ export const asyncRouterMap = [
     ]
   },
   {
+    path: "/headline-management",
+    name: "headlineManagement",
+    component: Layout,
+    redirect: "noredirect",
+    meta: { title: "头条设置管理", icon: "iconfont icon-jingxiaoshang" },
+    children: [
+      {
+        level: 0,
+        path: "headline",
+        component: require("@/views/headline-management/index").default,
+        name: "headline",
+        meta: {
+          title: "头条设置",
+          icon: "iconfont icon-icon--copy"
+        }
+      }
+    ]
+  },
+  {
     path: "/report-management",
     name: "reportManagement",
     component: Layout,
@@ -74,7 +93,7 @@ export const asyncRouterMap = [
     meta: { title: "报告管理", icon: "iconfont icon-jingxiaoshang" },
     children: [
       {
-        level: 0,
+        level: 1,
         path: "report-list",
         component: require("@/views/report-management/report-list").default,
         name: "reportList",
