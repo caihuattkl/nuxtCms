@@ -48,5 +48,8 @@ export default {
   styleResources: {
     scss: "./assets/scss/common.scss"
   },
-  build: {}
+  build: {
+    cache:true,
+    parallel:true
+  }
 };

@@ -138,7 +138,8 @@ code {
 //main-container全局样式
 .app-container {
   padding: 20px;
-  min-width: 1296px;
+  min-width: 886px;
+  overflow: hidden;
 }
 
 .components-container {

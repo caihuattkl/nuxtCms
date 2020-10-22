@@ -6,6 +6,8 @@ $heightLine: 40px;
     transition: margin-left 0.28s;
     margin-left: 180px;
     min-width: 1000px;
+    width: 100%;
+    overflow:hidden;
   } // 侧边栏
   .sidebar-container {
     transition: width 0.28s;
