@@ -7,6 +7,9 @@
           <li>
             <a href="/"><img src="/logo_fnc.jpg"/></a>
           </li>
+          <li>
+            <a target="_blank" :href="`/reports/`">{{ `报告频道` }}</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -16,10 +19,10 @@
           <li>
             <a href="/reports/" title="报告频道">行业报告</a>
           </li>
-          <template v-for="(item,i) in channelReportNavData">
-              <li :key="i"  v-if="item.first_class == 0">
-            <a :href="`/reports/${item.reports_directory}/`"  :title="item.sub_title">{{item.sub_title | _formatSubtitle}}</a>
-          </li>
+          <template v-for="(item, i) in channelReportNavData">
+            <li :key="i" v-if="item.first_class == 0">
+              <a :href="`/reports/${item.reports_directory}/1`" :title="item.sub_title">{{ item.sub_title | _formatSubtitle }}</a>
+            </li>
           </template>
         </ul>
         <div class="searchBox">
@@ -27,7 +30,6 @@
           <span class="hotkey"><strong>&nbsp;热搜关键词：</strong><a href="#">中国制造2025</a><a href="#">数据中国</a><a href="#">虚拟现实</a><a href="#">充电桩</a></span>
         </div>
       </div>
-      <!-- {{>reportsMeun}} -->
       <div class="content">
         <div class="leftBox">
           <!-- {{>channel-slide-report}} -->
@@ -56,15 +58,15 @@
             <h3><img src="/hot.gif" />&nbsp;热卖报告</h3>
             <ul>
               <li>
-                <a style="color:#c81629" target="_blank" href="/" title="">2017-2022年中国互联网+电影产业商业模式创新与投资机会深度研究报告</a><img src="/new.gif"/>
+                <a style="color:#c81629" target="_blank" href="/" title="">2017-2022年中国互联网+电影产业商业模式创新与投资机会深度研究报告</a><img src="/new.gif" />
                 <p>在一个供大于求的需求经济时代，企业成功的关键就在于，是否能够在需求尚未形成之时就牢牢的锁定并捕捉到它...</p>
               </li>
               <li>
-                <a target="_blank" href="/" title="">2017-2022年中国互联网+电影产业商业模式创新与投资机会深度研究报告</a><img src="/new.gif"/>
+                <a target="_blank" href="/" title="">2017-2022年中国互联网+电影产业商业模式创新与投资机会深度研究报告</a><img src="/new.gif" />
                 <p>在一个供大于求的需求经济时代，企业成功的关键就在于，是否能够在需求尚未形成之时就牢牢的锁定并捕捉到它...</p>
               </li>
               <li>
-                <a target="_blank" href="/" title="">2017-2022年中国互联网+电影产业商业模式创新与投资机会深度研究报告</a><img src="/new.gif"/>
+                <a target="_blank" href="/" title="">2017-2022年中国互联网+电影产业商业模式创新与投资机会深度研究报告</a><img src="/new.gif" />
                 <p>在一个供大于求的需求经济时代，企业成功的关键就在于，是否能够在需求尚未形成之时就牢牢的锁定并捕捉到它...</p>
               </li>
             </ul>
@@ -75,17 +77,16 @@
           <div class="category">
             <h4>按行业</h4>
             <ul>
-                <template  v-for="(item,i) in channelReportNavData">
+              <template v-for="(item, i) in channelReportNavData">
                 <li :key="i" v-if="item.first_class == 0">
-                    <div class="details" :data="item.first_class">
-                        <h3 :title="item.sub_title" :key="i">{{item.sub_title}}</h3>
-                            <div  class="kinds_list">
-                                <template v-for="(item1,k) in channelReportNavData">
-                                <a :key="k" v-if="item.id==item1.first_class" :href="`/reports/${item1.reports_directory}/`" target="_blank">{{item1.sub_title}}</a>
-                             </template>
-                            </div>
-                        
+                  <div class="details" :data="item.first_class">
+                    <h3 :title="item.sub_title" :key="i">{{ item.sub_title }}</h3>
+                    <div class="kinds_list">
+                      <template v-for="(item1, k) in channelReportNavData">
+                        <a :key="k" v-if="item.id == item1.first_class" :href="`/reports/${item1.reports_directory}/1`" target="_blank">{{ item1.sub_title }}</a>
+                      </template>
                     </div>
+                  </div>
                 </li>
               </template>
             </ul>
@@ -213,49 +214,50 @@
       <!--图片分割-->
       <div class="channel-ad-001"></div>
       <div class="reportClass">
-        <div id="column" class="column">
-          <div class="tit">
-            <span><a href="/reports/1/" target="_blank">更多&gt;&gt;</a></span>
-            <a href="/reports/1/" target="_blank">{{ `报告分类名称` }}</a>
+        <template v-for="(item, index) in bigClass">
+          <div id="column" class="column" :key="index">
+            <div class="tit">
+              <span><a :href="`/reports/${item.reports_directory}/1/`" target="_blank">更多&gt;&gt;</a></span>
+              <a :href="`/reports/${item.reports_directory}/1/`" target="_blank">{{ item.sub_title }}</a>
+            </div>
+            <div class="pic_txt">
+              <a :href="`/reports/${reports[index][0].report_url}.html`"  target="_blank">
+              <img width="120" height="120" :alt="reports[index][0].title" src="/baogao.jpg"/></a>
+              <strong>
+                <a :href="`/reports/${reports[index][0].report_url}.html`"  target="_blank">{{ reports[index][0].title }}</a></strong>
+              <p>
+                {{reports[index][0].report_summary.slice(0,70)+`...`}}
+                <a :href="`/reports/${reports[index][0].report_url}.html`" target="_blank">[详细]</a>
+              </p>
+            </div>
+            <div class="list">
+              <ul>
+                <li>
+                  <i><a href="1.html" target="_blank">在线订购</a></i><span>·</span>
+                  <span><a :href="`/reports/${reports[index][1].report_url}.html`" target="_blank">{{ reports[index][1].title }}</a></span>
+                </li>
+                <li>
+                  <i><a href="1.html" target="_blank">在线订购</a></i><span>·</span>
+                  <span><a :href="`/reports/${reports[index][2].report_url}.html`" target="_blank">{{ reports[index][2].title }}</a></span>
+                </li>
+              </ul>
+            </div>
+            <div class="tags">
+              <a target="_blank" href="http://bg.qianzhan.com/report/detail/1611280933127732.html">绿色能源（清洁能源）<sup>
+                <img src="http://bg.qianzhan.com/img/skin/hot_sup.gif" width="22" height="12" alt=""/></sup></a>
+              <a target="_blank" href="http://bg.qianzhan.com/report/detail/1608181721161729.html">动力电池PACK<sup>
+                <img src="http://bg.qianzhan.com/img/skin/hot_sup.gif" width="22" height="12" alt=""/></sup></a>
+              <a target="_blank" href="http://bg.qianzhan.com/report/detail/9362d09481d745c1.html">售电公司</a>
+              <a target="_blank" href="http://bg.qianzhan.com/report/detail/9e0582d45a794375.html">互联网+储能</a>
+              <a target="_blank" href="http://bg.qianzhan.com/report/detail/575aec1541c14bf3.html">油气储备建设</a>
+              <a target="_blank" href="http://bg.qianzhan.com/report/detail/b71201ae0d0a496c.html">固废处理</a>
+              <a target="_blank" href="http://bg.qianzhan.com/report/detail/fd9e2913e9f5454b.html">水质监测</a>
+              <a target="_blank" href="http://bg.qianzhan.com/report/detail/e977bb88d00848e9.html">互联网+炼油化工设备</a>
+              <a target="_blank" href="http://bg.qianzhan.com/report/detail/2ddae773043e425e.html">煤代油</a>
+              <a target="_blank" href="http://bg.qianzhan.com/report/detail/cb6f693f17a34104.html">水力发电</a>
+            </div>
           </div>
-          <div class="pic_txt">
-            <a href="http://bg.qianzhan.com/report/detail/1610281705450387.html" target="_blank"><img width="120" height="120" alt="2017-2022年中国生物质成型燃料（BMF）行业市场前瞻与投资战略规划分析报告" original="http://img3.qianzhan123.com/report/cover/16/1610281705450387.gif" src="http://img3.qianzhan123.com/report/cover/16/1610281705450387.gif" style="display: block;"/></a
-            ><strong
-              ><a href="http://bg.qianzhan.com/report/detail/1610281705450387.html" target="_blank">2017-2022年中国<em class="fontblue">生物质成型燃料（BMF）</em>行业市场前瞻与投资战略规划分析报告</a></strong
-            >
-            <p>
-              报告核心价值在一个供大于求的需求经济时代，企业成功的关键就在于，是否能够在需求尚未形成之时就牢牢的锁定并捕捉到它。那些成功的公......
-              <a href="http://bg.qianzhan.com/report/detail/1610281705450387.html" target="_blank">[详细]</a>
-            </p>
-          </div>
-          <div class="list">
-            <ul>
-              <li>
-                <i><a href="1.html" target="_blank">在线订购</a></i
-                ><span>·</span
-                ><span
-                  ><a href="1.html" target="_blank">{{ `报告标题` }}</a></span
-                >
-              </li>
-            </ul>
-          </div>
-          <div class="tags">
-            <a target="_blank" href="http://bg.qianzhan.com/report/detail/1611280933127732.html"
-              >绿色能源（清洁能源）<sup><img src="http://bg.qianzhan.com/img/skin/hot_sup.gif" width="22" height="12" alt=""/></sup
-            ></a>
-            <a target="_blank" href="http://bg.qianzhan.com/report/detail/1608181721161729.html"
-              >动力电池PACK<sup><img src="http://bg.qianzhan.com/img/skin/hot_sup.gif" width="22" height="12" alt=""/></sup
-            ></a>
-            <a target="_blank" href="http://bg.qianzhan.com/report/detail/9362d09481d745c1.html">售电公司</a>
-            <a target="_blank" href="http://bg.qianzhan.com/report/detail/9e0582d45a794375.html">互联网+储能</a>
-            <a target="_blank" href="http://bg.qianzhan.com/report/detail/575aec1541c14bf3.html">油气储备建设</a>
-            <a target="_blank" href="http://bg.qianzhan.com/report/detail/b71201ae0d0a496c.html">固废处理</a>
-            <a target="_blank" href="http://bg.qianzhan.com/report/detail/fd9e2913e9f5454b.html">水质监测</a>
-            <a target="_blank" href="http://bg.qianzhan.com/report/detail/e977bb88d00848e9.html">互联网+炼油化工设备</a>
-            <a target="_blank" href="http://bg.qianzhan.com/report/detail/2ddae773043e425e.html">煤代油</a>
-            <a target="_blank" href="http://bg.qianzhan.com/report/detail/cb6f693f17a34104.html">水力发电</a>
-          </div>
-        </div>
+        </template>
       </div>
     </div>
   </div>
@@ -288,31 +290,36 @@ export default {
   created() {},
   filters:{
       _formatSubtitle(a){
-          console.log(a)
           return a.length>3?a.slice(0,2):a;
       }
   },
   async asyncData({ app, error }) {
+
     try {
-    //   /* 获取栏目列表数据 */
-    //   const {
-    //     data: { data: classNewsList }
-    //   } = await app.$axios.post("/v1/sqlites/class_news_list", {
-    //     childClassName: classNames[1],
-    //     firstClassName: classNames[0],
-    //     pageSize: 10,
-    //     pageNumber: 1
-    //   });
     //   /* 获取报告导航条数据 */
       const {
         data: { data: channelReportNavData }
       } = await app.$axios.post("/v1/reports/report_class", {});
+
+      // let bigClass = channelReportNavData.map(item=>{
+      //   if(item.first_class=='0') return item;
+      //   return
+      // })
+
+      let bigClass = channelReportNavData.filter(item=>item.first_class=='0');
       /* 获取header头部数据 */
       const {
         data: { data: headerTopNav }
       } = await app.$axios.post("/v1/sqlites/header_top_nav", {});
 
-      return { channelReportNavData,headerTopNav };
+       /* 获取每个分类一条报告数据 */
+      const {
+        data: { data: reports }
+      } = await app.$axios.post("/v1/reports/report_class_one", {});
+
+      console.log(reports.length)
+
+      return { reports,bigClass,channelReportNavData,headerTopNav };
 
     } catch (err) {
       error({ statusCode: 404, message: "Post not found" });
@@ -359,13 +366,16 @@ export default {
   .reportClass {
     margin-top: 5px;
     .column {
-      margin: 5px 0;
       background: #fff;
       display: inline-block;
       width: 496.5px;
       height: 383px;
       border: 1px solid #e2e2e2;
       padding: 10px;
+      &:nth-child(2n + 1) {
+        margin-right: 5px;
+        margin-top: 5px;
+      }
       .tit {
         height: 50px;
         font: bold 18px/50px Microsoft YaHei;
@@ -433,8 +443,7 @@ export default {
       }
 
       .tags {
-        background: #ffffff;
-        // url("/dist/images/report_bg.png") no-repeat 0 -14px #fff;
+        background: url("/report_bg.png") no-repeat 0 -14px #fff;
         border-top: 1px solid #e2e2e2;
         clear: both;
         height: 75px;
@@ -468,57 +477,53 @@ export default {
   }
 }
 
-
 .reports-nav {
-    background: $zzblue;
-    overflow: hidden;
-    ul li {
-        height: 40px;
-        line-height:$fs40;
-        display: inline-block;
-        margin: 0 8px;
-        font-size: $fs16;
-        a {
-            color: $zzLight-0;
-        }
+  background: $zzblue;
+  overflow: hidden;
+  ul li {
+    height: 40px;
+    line-height: $fs40;
+    display: inline-block;
+    margin: 0 8px;
+    font-size: $fs16;
+    a {
+      color: $zzLight-0;
     }
-    .searchBox {
-        height: 40px;
-        padding: 6px 15px;
-        border: 1px solid $zzLight-2;
-        border-top: 1px solid transparent;
-        background: #fff;
-        .search-keyword {
-            padding: 0 5px;
-            display: inline-block;
-            width: 490px;
-            height: 25px;
-            line-height: 25px;
-            border: 1px solid #fc9494;
-            color: $zzblack;
-        }
-        .search-btn {
-            left: 455px;
-            display: inline-block;
-            vertical-align: bottom;
-            margin-left: -50px;
-            width: 50px;
-            height: 25px;
-            line-height: 25px;
-            border: none;
-            background-color: red;
-            color: #fff;
-        }
-        .hotkey {
-            a {
-                margin: 0 5px;
-            }
-        }
+  }
+  .searchBox {
+    height: 40px;
+    padding: 6px 15px;
+    border: 1px solid $zzLight-2;
+    border-top: 1px solid transparent;
+    background: #fff;
+    .search-keyword {
+      padding: 0 5px;
+      display: inline-block;
+      width: 490px;
+      height: 25px;
+      line-height: 25px;
+      border: 1px solid #fc9494;
+      color: $zzblack;
     }
+    .search-btn {
+      left: 455px;
+      display: inline-block;
+      vertical-align: bottom;
+      margin-left: -50px;
+      width: 50px;
+      height: 25px;
+      line-height: 25px;
+      border: none;
+      background-color: red;
+      color: #fff;
+    }
+    .hotkey {
+      a {
+        margin: 0 5px;
+      }
+    }
+  }
 }
-
-
-
 
 .content {
   .leftBox {

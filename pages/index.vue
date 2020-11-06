@@ -174,13 +174,13 @@
             <h3><a  :href="`/reports/${item[0].reports_directory}/`">{{item[0].title}}</a>、<a  :href="`/reports/${item[1].reports_directory}/`">{{item[1].title}}</a></h3>
             <div class="sectionSubContent" id="sectionSubContent" :style="item[0].show?'display:block':'display:none'">
               <div id="sectionLeftContent" class="sectionLeftContent">
-                <dl v-if="i1<7" class="smallIndustry" v-for="(item1,i1) in item">
+                <dl v-if="i1<7" :key="i1" class="smallIndustry" v-for="(item1,i1) in item">
                   <dt>
-                    <em><a :href="`/reports/${item1.reports_directory}/`">{{item1.title}}</a></em>
+                    <em><a :href="`/reports/${item1.reports_directory}/1`">{{item1.title}}</a></em>
                   </dt>
                     <dd>
-                      <em  v-for="(item2,i) in item1.child" >
-                        <a :href="`/reports/${item2.reports_directory}/`">{{item2.sub_title}}</a>
+                      <em  :key="i" v-for="(item2,i) in item1.child" >
+                        <a  :href="`/reports/${item2.reports_directory}/1`">{{item2.sub_title}}</a>
                       </em>
                     </dd>
                 </dl>
