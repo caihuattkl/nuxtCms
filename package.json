@@ -16,7 +16,7 @@
     "css-loader": "^3.6.0",
     "iview": "^3.5.4",
     "md5": "^2.3.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "nuxt": "^2.13.0",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^8.0.2",
